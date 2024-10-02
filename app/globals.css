@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+}
+
+h1 {
+  @apply text-4xl text-center bg-clip-text text-transparent bg-gradient-to-br from-[#F67280] to-[#320435] drop-shadow-[4px_8px_6px_rgba(0,0,0,0.2)] font-extrabold pb-4 ;
+}
+
+header {
+  @apply h-screen flex flex-col relative ;
+}
+
+/* Footer */
+
+footer {
+  @apply w-screen bg-[#320435] text-white text-center h-[50px] flex justify-center items-center text-[1.25rem] 2xl:text-[1.5rem] relative bottom-0;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

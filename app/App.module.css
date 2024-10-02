@@ -1,0 +1,495 @@
+
+
+
+.App {
+    @apply w-screen max-w-full;
+}
+
+.ContentCon {
+    @apply max-w-[1400px] pt-52 md:pt-[150px] xl:pt-[100px] px-2 sm:px-8 m-auto mb-12 relative overflow-x-hidden;
+
+}
+
+.ContentCon h3 {
+  @apply text-xl sm:text-2xl font-bold text-[#320435] mb-1;
+
+}
+
+.policycon ul {
+  @apply list-disc left-4 relative my-4 pr-4;
+
+}
+
+.ContentCon h4 {
+  @apply text-xl;
+
+}
+
+/* Service Page */
+
+.ServiceNav {
+  @apply fixed bottom-[calc(-1*100vh)] w-full ;
+}
+
+.ServiceCards{
+    @apply w-full bg-gradient-to-br from-[#F67280] to-[#320435];
+}
+
+.ServiceCard {
+    @apply flex flex-col flex-wrap max-w-full min-w-[142px] w-40 xl:w-48 h-auto text-white text-center relative cursor-pointer xl:text-xl pt-4;
+}
+
+.ContentSection {
+  @apply min-h-[480px];
+}
+
+.checkIcon {
+  @apply text-xl pr-1 bg-clip-text text-transparent bg-gradient-to-bl from-[#F67280] to-[#320435]
+}
+
+.ServiceCard i {
+  @apply pb-1 lg:pb-2;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.ActiveCard {
+  @apply font-bold min-w-[142px];
+  transition: all 0.3s ease;
+  position: relative; /* Add this line */
+}
+
+.ActiveCard::before {
+  @apply hidden lg:block;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  mask: 
+    linear-gradient(to right, #000 20%, transparent 20% 80%, #000 80%) top / 100% 1px, 
+    linear-gradient(to right, #000 20%, transparent 20% 80%, #000 80%) bottom / 100% 1px, 
+    linear-gradient(to bottom, #000 20%, transparent 20% 80%, #000 80%) left / 1px 100%, 
+    linear-gradient(to bottom, #000 20%, transparent 20% 80%, #000 80%) right / 1px 100%;
+  mask-repeat: no-repeat;
+  min-width: 142px;
+  box-sizing: border-box; /* Add this line */
+
+}
+
+.wdServiceHeadlines {
+  @apply w-full pt-8 order-[2];
+}
+
+.wdServiceHeadlines ul li {
+  @apply pr-2 sm:pr-4 xl:pr-6 leading-8 text-center;
+}
+
+.LoadingBar {
+  width: 0%;
+  height: 5px;
+  background-color: #320435;
+  position: relative;
+  animation: loadProgress 30s linear infinite;
+}
+
+.LoadingBar::-webkit-progress-value {
+  background-color: #320435;
+  animation: loadProgress 30s linear infinite; /* Add this line */
+}
+
+.LoadingBar::-moz-progress-bar {
+  background-color: #320435;
+  animation: loadProgress 30s linear infinite; /* Add this line */
+}
+
+/* Add this block */
+@keyframes loadProgress {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+.cta {
+  @apply flex py-3 px-8 mt-6 mb-2 mx-auto xl:mx-0 text-white font-bold text-xl bg-[#320435] transition-all duration-300 ease-in-out;
+
+  text-decoration: none;
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(-15deg);
+  border: none;
+}
+
+.cta:focus {
+  outline: none;
+}
+
+.cta:hover {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 #F67280;
+}
+
+.cta .second {
+  transition: 0.5s;
+  margin-right: 0px;
+}
+
+.cta:hover  .second {
+  transition: 0.5s;
+  margin-right: 25px;
+}
+
+.span {
+  transform: skewX(15deg)
+}
+
+.second {
+  width: 20px;
+  margin-left: 15px;
+  position: relative;
+  top: 12%;
+}
+
+.one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+.two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.cta:hover .three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover .one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover .two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+
+  50% {
+    fill: #F67280;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+/* Navigation */
+
+
+.burgerMenu {
+  @apply flex lg:hidden items-center justify-center; 
+}
+
+.iconMenu {
+  --gap: 5px;
+  --height-bar: 2px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  cursor: pointer;
+  position: relative;
+}
+
+.bar {
+  position: relative;
+  height: var(--height-bar);
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #fff;
+}
+
+.bar1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.checkIcon:checked + .iconMenu > .bar1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.checkIcon:checked + .iconMenu > .bar3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.checkIcon:checked + .iconMenu > .bar {
+  background-color: #F68894;
+}
+
+.checkIcon:checked + .iconMenu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+
+.Nav {
+    @apply max-w-full w-screen flex flex-row justify-between items-start px-2 lg:px-8 py-2 md:py-5 absolute z-20;
+    transition: all 0.5s ease;
+  }
+
+.Nav img {
+    @apply relative w-[230px] h-[90px] sm:top-0 md:h-[110px] md:w-[281px] 2xl:w-[332px] 2xl:h-[130px];
+}
+
+
+.newMenu {
+  @apply rounded-full flex items-center justify-center px-4 py-3 xl:py-[12px] mt-1.5 lg:mt-3 mr-2 lg:mr-0 w-[55px] h-[55px] lg:w-auto lg:h-auto;
+  background-color: rgba(50, 4, 53, 0.85);
+  backdrop-filter: blur(5px); /* Unschärfe-Effekt */
+  transition: all 0.5s ease;
+  z-index: 40;
+}
+
+.Nav ul li.active {
+  @apply drop-shadow-[4px_8px_6px_rgba(0,0,0,0.2)] text-[#F68894];
+}
+
+.newNav {
+  @apply hidden lg:flex justify-around transition-transform duration-300 ease-in-out;
+}
+
+.newNav a {
+  @apply flex justify-center flex-row items-center px-2 w-auto max-w-full;
+}
+
+.newNav i {
+  @apply pr-2 relative text-2xl leading-6;
+}
+
+.newMenu ul li {
+  @apply flex h-[30px] text-white first:pl-0 pl-4 text-[1.25rem];
+}
+
+/*
+@media (max-width: 1279px) {
+   Ihre CSS-Regeln hier */
+  /* .nav-items {
+    @apply w-full h-screen fixed top-0 right-0 z-20 text-center pt-48;
+    background: linear-gradient(to bottom right, rgba(50, 4, 53, 0.9), rgba(246, 114, 128, 0.9));
+  backdrop-filter: blur(5px); 
+  } 
+
+}*/
+
+.nav-items.visible {
+  transform: translateY(0);
+}
+
+/* Burger Menu */
+
+.burgerbar {
+  background: #320435;
+  height: 4px;
+  width: 35px;
+  border-radius: 50pt;
+  margin: 7px auto;
+  transition: all .5s ease;
+  /*-webkit-transition: all .7s ease;
+  -moz-transition: all .7s ease;
+  -ms-transition: all .7s ease;
+  -o-transition: all .7s ease;*/
+}
+
+/* Header-Bereich */
+
+
+.headline {
+    @apply w-screen max-w-[1300px] mx-auto sm:my-auto top-[80px] sm:top-0 font-bold relative pt-16 text-center;
+}
+
+
+.headline h1 {
+    @apply leading-[2.75rem] min-[480px]:leading-[3.25rem] text-[2.5rem] sm:leading-[3.75rem] md:leading-[4.25rem] lg:leading-[4.75rem] xl:leading-[5rem] min-[480px]:text-[3rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] xl:text-[4.5rem] bg-clip-text text-transparent bg-gradient-to-br from-[#F67280] to-[#320435] drop-shadow-[4px_8px_6px_rgba(0,0,0,0.2)] font-extrabold pb-4;
+}
+
+.headlineTitle {
+    @apply z-0 relative h-auto px-2;
+}
+
+
+.projectButton {
+    @apply font-[600] py-2 text-white text-[1.25rem] sm:text-[1.5rem] uppercase;
+}
+
+.customerLogo {
+  @apply mr-40;
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+.customerLogo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Project Request Form */
+
+/* input {
+  font-size: 1.25rem;
+  font-weight: normal;
+} */
+
+.timescon label {
+    position: relative;
+    font-size: 1.25rem;
+    font-weight: normal;
+    top: -7px;
+}
+
+.timescon {
+    @apply w-full mt-2 block sm:flex;
+
+}
+
+.projectRequestCard {
+    @apply flex flex-col justify-center m-auto text-white shadow-2xl h-96 w-80 relative p-8;
+}
+
+.projectRequestCon {
+  @apply mx-auto bg-[#320435] z-40 absolute;
+  background: linear-gradient(135deg, rgb(50, 4, 53) 0%, rgb(50, 4, 53) 0%, rgb(251, 116, 130) 100%);
+  max-width: 100%;
+  width: 1000px;
+  min-height: 560px;
+}
+
+.checkbox-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+
+
+/**
+ * Extracted from: SweetAlert
+ * Modified by: Istiak Tridips
+ */
+  
+  .icons-animation svg{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: center
+  }
+  
+  /* Explosion animation */
+  
+  .explosion{
+    z-index: 3;
+  }
+  
+  .explosion circle{
+    animation: circle-explosion 1s forwards;
+  
+    transform-origin: center;
+    opacity: 0;
+  }
+  
+  @keyframes circle-explosion {
+    0% {
+    opacity: 1;
+      stroke-width: 40;
+      transform: scale(0)
+    }
+  
+    100%{
+      opacity: 1;
+      stroke-width: 4;
+      transform: scale(1)
+    }
+  }
+  
+  .explosion path{
+    animation: path-explosion 2s forwards;
+    transform-origin: center;
+    stroke-dasharray: 1, 40;
+    stroke-dashoffset: 0;
+  
+    opacity: 0;
+  }
+  
+  @keyframes path-explosion {
+    0%,12%{
+      opacity: 0;
+    }
+    12.5%{
+      stroke-dasharray: 15, 40;
+      stroke-dashoffset: -40;
+      opacity: 1;
+      stroke-width: 3;
+      transform: rotate(0)
+    }
+    50%,100% {
+      stroke-dasharray: 1, 40;
+      stroke-dashoffset: 2;
+      stroke-width: 0;
+      transform: rotate(0);
+    }
+  }
+  
+  
+  .explosion .check{
+    animation: check 2s forwards;
+    animation-delay: .25s;
+    stroke-dasharray: 1, 40;
+    stroke-dashoffset: 0;
+  }
+  
+  
+  
+  @keyframes check {
+    0%,12%{
+      opacity: 0;
+    }
+    12.5%{
+      stroke-dasharray: 40, 40;
+      stroke-dashoffset: 40;
+      opacity: 1;
+    }
+    50%,100% {
+      stroke-dasharray: 40, 40;
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+
+  .test {
+    color: #00bb38;
+  }

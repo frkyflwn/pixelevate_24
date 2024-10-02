@@ -1,0 +1,51 @@
+
+h2 {
+  color: #320435;
+  font-size: 2.25rem;
+  font-weight: 600;
+  padding-bottom: 1rem;
+}
+
+#type{
+    display: inline-block;
+    line-height: 2rem;
+}
+
+#blinker{
+
+    background-color: #320435;
+    display: inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 2.75rem;
+    font-weight: 400;
+  
+  &.blink{
+    animation-name: type;
+    animation-duration: .75s;
+    animation-iteration-count: infinite;
+  }
+  
+}
+
+@keyframes type{
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 1023px) {
+  h2, #blinker {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 647px) {
+  h2, #blinker {
+    font-size: 1.5rem;
+  }
+}
